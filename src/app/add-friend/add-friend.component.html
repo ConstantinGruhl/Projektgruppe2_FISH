@@ -1,0 +1,61 @@
+<section class="min-vh-100" style="background-color: #5A5A5A;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="col-md-6 col-lg-7 d-flex align-items-center">
+            <div class="card-body p-4 p-lg-5 text-black">
+
+              <form>
+
+                <div class="d-flex align-items-center mb-3 pb-1">
+                  <span class="h1 fw-bold mb-0">Freunde hinzufügen</span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input #searchInput class="form-control form-control-lg" id="form2Example18" name="groupName" type="text"/>
+                </div>
+
+                <div class="pt-1 mb-4">
+                  <button (click)="onSearch(searchInput.value)" class="btn btn-dark btn-lg btn-block" type="button">
+                    Suchen
+                  </button>
+                </div>
+
+                <div class="results" *ngFor="let user of searchResults">
+                  <div class="d-flex justify-content-between align-items-center mb-2 border rounded p-2">
+                    <p class="mb-0">{{user.Name}}</p>
+                    <button (click)="addToFriends(user)" class="btn btn-dark">
+                      Zu Freunden hinzufügen
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="searchResults.length === 0">
+                  <p>Kein Nutzer mit diesem Namen gefunden.</p>
+                </div>
+
+                <div class="friends">
+                  <h2>Ihre Freunde:</h2>
+                  <div *ngIf="noFriendsError" class="alert alert-warning" role="alert">
+                    {{ noFriendsError }}
+                  </div>
+                  <div *ngIf="areThereFriends">
+                    <div *ngFor="let friend of friends" class="border rounded p-2 mb-2 d-flex justify-content-between align-items-center">
+                      <p>{{friend.Name}}</p>
+                      <button (click)="removeFriend(friend.idProfile)" class="btn btn-danger">Freund entfernen</button>
+                    </div>
+                  </div>
+                  <button *ngIf="!areThereFriends" routerLink="/addFriend" class="btn btn-primary">
+                    Neue Freunde hinzufügen
+                  </button>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

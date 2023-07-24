@@ -1,0 +1,12 @@
+<div class="appointment-request">
+  <h3>{{ request.senderName }} möchte dich FISHen</h3>
+  <p>{{ request.Description }}</p>
+  <p>Von: {{ request.ProposedStartTime | date:'shortTime':'':'de' }}</p>
+  <p>Bis: {{ request.ProposedEndTime | date:'shortTime':'':'de' }}</p>
+
+
+  <div class="buttons">
+    <button class="btn btn-success" (click)="acceptAppRequest()">Annehmen</button>
+    <button class="btn btn-danger" (click)="declineAppRequest()">Ablehnen</button>
+  </div>
+</div>

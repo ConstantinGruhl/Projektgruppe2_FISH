@@ -1,0 +1,41 @@
+<div class="scroll shadow-lg bg-light text-dark">
+  <button (click)="onPressClose()" class="btn btn-light btn-lg custom-continue" type="timebutton">Zurück
+  </button>
+  <div class="card-body p-5">
+    <div class="d-flex align-items-center mb-3 pb-1">
+      <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+      <span class="h1 fw-bold mb-0">Neue Anfrage</span>
+    </div>
+    <div class="mb-md-5 mt-md-4 pb-5">
+      <div class="minutes-gap-example">
+        <button [format]="24" [ngxTimepicker]="OnTime" class="btn btn-secondary btn-lg custom" type="timebutton">
+          On
+        </button>
+        Du kommst online um: {{timeOn}}
+        <ngx-material-timepicker #OnTime (timeSet)="saveOnTime($event)" [format]="24"
+                                 [minutesGap]="30"></ngx-material-timepicker>
+      </div>
+      <div class="minutes-gap-example">
+        <button [format]="24" [ngxTimepicker]="OffTime" class="btn btn-secondary btn-lg custom" type="timebutton">
+          Off
+        </button>
+        Du gehst off um: {{timeOff}}
+        <ngx-material-timepicker #OffTime (timeSet)="saveOffTime($event)" [format]="24"
+                                 [minutesGap]="30"></ngx-material-timepicker>
+      </div>
+
+      Gruppe:
+      <app-group-dropdown (selectedGroupID)="handleSelectedGroupID($event)"></app-group-dropdown>
+
+      <div class="form-group">
+        <textarea [formControl]="userInputControl" maxlength="500" class="form-control" id="message" rows="3"></textarea>
+        <p>{{charactersRemaining}}/500 Zeichen</p>
+      </div>
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+      <button (click)="onPress()" class="btn btn-warning btn-lg custom-continue" type="timebutton">FISH
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.profile-list li:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.users {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status{
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.legend span {
+  display: inline-block;
+  padding: 5px;
+  color: white;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.status-accepted {
+  background-color: #28a745;
+     border-radius: 5px;
+}
+
+.status-sent {
+  background-color: #007bff;
+     border-radius: 5px;
+}
+
+.status-denied {
+  background-color: #dc3545;
+     border-radius: 5px;
+}

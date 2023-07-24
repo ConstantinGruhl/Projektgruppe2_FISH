@@ -1,0 +1,79 @@
+.container{
+background-color: white;
+margin-left: 0px;
+margin-right: 0px;
+padding-right:0px;
+width: 25%;
+overflow-y: scroll;
+position: fixed;
+bottom: 0;
+  left: 0px;
+  top: 6%;
+  z-index: 99;
+}
+
+.profile-info-list > li .value {
+    color: #666;
+}
+
+.table.table-profile .value {
+    font-weight: 500;
+}
+
+.profile-header .profile-header-content {
+    color: #fff;
+    padding: 1.25rem;
+}
+
+.profile-container {
+    padding: 1.5625rem;
+}
+
+.friend-list,
+.img-grid-list {
+    margin: -1px;
+    list-style-type: none;
+}
+
+.coming-soon-cover img,
+.email-detail-attachment .email-attachment .document-file img,
+.email-sender-img img,
+.friend-list .friend-img img,
+.profile-header-img img {
+    max-width: 100%;
+}
+
+
+.friend-list > li > a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: 0.625rem;
+    margin: 1px;
+    background: #fff;
+}
+.friend-list > li > a:after,
+.friend-list > li > a:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+.friend-list .friend-img {
+    float: left;
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    background: #efeff4;
+}
+.friend-list .friend-info {
+    margin-left: 3.625rem;
+}
+.friend-list .friend-info h4 {
+    margin: 0.3125rem 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+.friend-list .friend-info p {
+    color: #666;
+    margin: 0;
+}

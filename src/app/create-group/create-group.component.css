@@ -1,0 +1,13 @@
+.result-item, .group-item {
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.result-item button, .group-item button {
+  margin-left: 10px;
+}
+
+hr {
+  border-top: 1px solid #000;
+}

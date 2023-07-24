@@ -1,0 +1,5 @@
+<app-header *ngIf="isLoggedIn"></app-header>
+<app-login *ngIf="!isLoggedIn && (!isRegisterRoute && !isPRRoute)"></app-login>
+<router-outlet *ngIf="isLoggedIn || (isPRRoute || isRegisterRoute)"></router-outlet>
+
+

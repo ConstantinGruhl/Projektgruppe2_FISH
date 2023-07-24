@@ -1,0 +1,19 @@
+.img-container img {
+  max-height: 80%;
+  max-width: 80%;
+}
+.backgroundImg{
+  background-color: #181717;
+  border-top-right-radius: 1.05rem;
+  border-bottom-right-radius: 1.05rem;
+}
+.img-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.card {
+  border-width: 0;
+}

@@ -1,0 +1,84 @@
+<section class="min-vh-100" style="background-color: #5A5A5A;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="col-md-6 col-lg-7 d-flex align-items-center">
+            <div class="card-body p-4 p-lg-5 text-black">
+
+              <form>
+
+                <div class="d-flex align-items-center mb-3 pb-1">
+                  <span class="h1 fw-bold mb-0">Gruppe erstellen</span>
+                </div>
+
+                <label for="groupName">Gruppenname</label>
+                <div class="form-outline mb-4">
+                  <input #groupName class="form-control form-control-lg" id="groupName"/>
+                </div>
+
+                <label for="searchInput">Nutzer suchen</label>
+                <div class="form-outline mb-4">
+                  <input #searchInput class="form-control form-control-lg" id="searchInput"/>
+                </div>
+
+                <div class="pt-1 mb-4">
+                  <button (click)="onSearch(searchInput.value)" class="btn btn-dark btn-lg btn-block" type="button">
+                    Suchen
+                  </button>
+                </div>
+
+                <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                  {{errorMessage}}
+                </div>
+
+                <div class="results" *ngFor="let player of searchResults">
+                  <div class="d-flex justify-content-between align-items-center mb-2 border rounded p-2">
+                    <span>{{player.Name}}</span>
+                    <button (click)="addToGroup(player)" class="btn btn-dark btn-lg">
+                      Zur Gruppe hinzufügen
+                    </button>
+                  </div>
+                </div>
+
+                <div *ngIf="searchResults.length === 0">
+                  <p>Kein Nutzer mit diesem Namen gefunden.</p>
+                </div>
+
+                <h3 class="mt-3">Mitglieder der Gruppe:</h3>
+                <div *ngFor="let member of groupMembers" class="border rounded p-2 mb-2">
+                  <p>{{member.Name}}</p>
+                </div>
+
+                <div class="pt-1 mb-4">
+                  <button (click)="createGroup(groupName.value)" class="btn btn-warning btn-lg btn-block" type="button">
+                    Gruppe erstellen
+                  </button>
+                </div>
+
+                <div class="groups" *ngFor="let group of groups">
+                  <div class="border rounded p-2 mb-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h3>{{group.name}}</h3>
+                      <button (click)="group.isExpanded = !group.isExpanded" class="btn btn-secondary btn-lg">
+                        {{group.isExpanded ? 'Verbergen' : 'Anzeigen'}}
+                      </button>
+                    </div>
+                    <div *ngIf="group.isExpanded">
+                      <h4>Mitglieder:</h4>
+                      <div *ngFor="let member of group.members" class="border rounded p-2 mb-2">
+                        <p>{{member.Name}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

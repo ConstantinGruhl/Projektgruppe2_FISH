@@ -1,0 +1,23 @@
+.scroll{
+  position: fixed;
+  background-color: white;
+  right: 0px;
+  padding: 20px;
+  top: 5%;
+  z-index: 100;
+  width: 40%;
+  overflow-y: scroll;
+  bottom: 0;
+}
+.custom{
+width: 100px;
+margin: 10px;
+left: 20%;
+}
+
+ .custom-continue{
+ width: 200px;
+ margin: 10px;
+ margin-top: 20px;
+ left: 20%;
+ }

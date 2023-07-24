@@ -1,0 +1,25 @@
+<div class="scroll h-100" style="background-color: white;">
+    <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white h-100" style="width: 380px; padding: 20px;">
+      <div class="list-group list-group-flush scrollarea">
+        <button (click)="onPressClose()" class="btn btn-light btn-lg custom-continue" type="timebutton">Zurück</button>
+
+        <div *ngIf="areThereRequests && friendRequests.length > 0">
+          <div *ngFor="let request of friendRequests" style="margin-bottom: 10px;">
+            <app-friend-request [user]="request" (accept)="acceptRequest($event)" (decline)="declineRequest($event)"></app-friend-request>
+            <hr>
+          </div>
+        </div>
+
+        <div *ngIf="areThereAppointmentRequests && appointmentRequests.length > 0">
+          <div *ngFor="let request of appointmentRequests" style="margin-bottom: 10px;">
+            <app-appointment-request [request]="request" (acceptApp)="acceptAppRequest($event)" (declineApp)="declineAppRequest($event)"></app-appointment-request>
+            <hr>
+          </div>
+        </div>
+
+        <div *ngIf="!areThereRequests && friendRequests.length === 0 && !areThereAppointmentRequests && appointmentRequests.length === 0">
+          <p>Keine neuen Mitteilungen</p>
+        </div>
+      </div>
+    </div>
+  </div>

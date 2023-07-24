@@ -1,0 +1,36 @@
+<div class="container">
+  <hr>
+  <div *ngIf="hasAcceptedRequests; else noRequests">
+    <h3><b>Deine Verabredungen:</b></h3>
+    <div class="card mb-3" *ngFor="let request of acceptedRequests; index as i">
+      <div class="card-body">
+        <h5 class="card-title">Anfrage von {{ request.senderName }}</h5>
+        <p class="card-text">
+          Spielzeit: {{ request.ProposedStartTime }} bis {{ request.ProposedEndTime }}<br>
+          Beschreibung: {{ request.Description }}
+        </p>
+        <button class="btn btn-secondary" (click)="request.showProfiles = !request.showProfiles">
+          {{ request.showProfiles ? 'Teilnehmer ausblenden' : 'Teilnehmer anzeigen' }}
+        </button>
+        <div *ngIf="request.profiles?.length > 0 && request.showProfiles">
+          <ul class="profile-list">
+            <li *ngFor="let profile of request.profiles">
+              <div class="users">
+                <span>{{ profile.AccountName }}</span>
+                <span [ngClass]="{'status-accepted': profile.Status === 'accepted', 'status-sent': profile.Status === 'sent', 'status-denied': profile.Status === 'denied'}">
+                  <div class="status">{{ getStatusInGerman(profile.Status) }}</div>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noRequests>
+    <div class="alert alert-info">
+      Keine angenommenen Anfragen gefunden.
+    </div>
+  </ng-template>
+</div>

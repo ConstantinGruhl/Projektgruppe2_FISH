@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="profile-container">
+    <div class="tab-pane fade active show" id="profile-friends">
+
+      <div><b>Freundesliste({{ friends.length }})</b></div>
+      <hr>
+      <div *ngIf="areThereFriends">
+      <ul class="friend-list clearfix">
+        <app-friend *ngFor="let friendName of friends" [friendName]="friendName.Name"></app-friend>
+
+      </ul>
+      </div>
+      <button *ngIf="!areThereFriends" routerLink="/addFriend" class="btn btn-primary">Neue Freunde hinzufügen</button>
+    </div>
+  </div>
+</div>
